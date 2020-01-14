@@ -4,7 +4,7 @@ body {
 
 #outputtext,
 #outputnumber,
-#outputlogical {
+#outputboolean {
   min-height: 1em;
   border: 1px solid gray;
   padding: 3px;
