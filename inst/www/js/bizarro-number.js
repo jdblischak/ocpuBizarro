@@ -3,10 +3,16 @@ $(document).ready(function(){
   $("#submitbuttonnumber").on("click", function(){
     $("#submitbuttonnumber").attr("disabled", "disabled");
     var mynumber = parseFloat($("#numberfield").val());
-    var req = ocpu.rpc("bizarro", {
+    $("#inputnumber").text(mynumber + "(" + typeof(mynumber) + ")");
+    var req = ocpu.call("bizarro", {
       x : mynumber
-    }, function(output){
-      $("#outputnumber").text(output);
+    }, function(session){
+      session.getConsole(function(outtxt){
+            $("#consolenumber").text(outtxt);
+        });
+      session.getObject(function(data){
+            $("#outputnumber").text(data[0] + "(" + typeof(data[0]) + ")");
+        });
     });
     req.fail(function(){
       alert("Server error: " + req.responseText);

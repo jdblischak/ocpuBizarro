@@ -2,10 +2,16 @@ $(document).ready(function(){
   $("#submitbuttontext").on("click", function(){
     $("#submitbuttontext").attr("disabled", "disabled");
     var mytext = $("#textfield").val();
-    var req = ocpu.rpc("bizarro", {
+    $("#inputtext").text('"' + mytext + '"' + "(" + typeof(mytext) + ")");
+    var req = ocpu.call("bizarro", {
       x : mytext
-    }, function(output){
-      $("#outputtext").text(output);
+    }, function(session){
+      session.getConsole(function(outtxt){
+            $("#consoletext").text(outtxt);
+        });
+      session.getObject(function(data){
+            $("#outputtext").text('"' + data[0] + '"' + "(" + typeof(data[0]) + ")");
+        });
     });
     req.fail(function(){
       alert("Server error: " + req.responseText);
