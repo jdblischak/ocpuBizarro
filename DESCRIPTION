@@ -1,0 +1,20 @@
+Package: ocpuBizarro
+Type: Package
+Title: Jenny Bryan's Bizarro Function Served via OpenCPU
+Version: 1.0
+Date: 2020-01-13
+Authors@R: c(
+    person("John", "Blischak", role = c("aut", "cre"),
+           email = "jdblischak@gmail.com"),
+    person("Jennifer", "Bryan", role = c("ctb"),
+           comment = "bizarro function"),
+    person("Jeroen", "Ooms", role = c("ctb"),
+           comment = "opencpu.js"),
+    person(family = "jQuery Foundation", role = "cph",
+           comment = "jQuery library"))
+Description: This package demonstrates passing different types of data objects
+    between JavaScript and R using openCPU.
+Suggests: opencpu
+License: apache2
+RoxygenNote: 7.0.2
+Encoding: UTF-8

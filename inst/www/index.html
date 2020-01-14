@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bizarro</title>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/opencpu-0.4.js"></script>
+    <script src="js/bizarro-text.js"></script>
+    <script src="js/bizarro-number.js"></script>
+    <script src="js/bizarro-boolean.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1>Bizarro</h1>
+    <p>
+      The <a href="https://www.opencpu.org/">OpenCPU</a> project by <a href="https://twitter.com/opencpu">Jeroen Ooms</a> provides the R package <a href="https://cran.r-project.org/package=opencpu">opencpu</a> and the JavaScript Client <a href="https://github.com/opencpu/opencpu.js">opencpu.js</a> to make R packages accessible from a webpage. One of its nicest features is that it preserves the data types when transferring from JavaScript to R via JSON. This means that an R package author doesn't need to
+      provide any wrapper functionality to process JSON.
+    </p>
+    <p>
+      This example app, ocpuBizarro, demonstrates this feature using
+      <a href="https://jennybryan.org/">Jenny Bryan's</a> bizarro function from her presentation
+       <a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">"Code Smells and Feels"</a>
+       at <a href="https://user2018.r-project.org/">useR! 2018</a> in Brisbane, QLD.
+       The original file I copied and modified is
+       <a href="https://github.com/jennybc/code-smells-and-feels/blob/74186ff2b0f7c41218719f7ae67a86362956d10b/R/11_biz_S3.R">11_biz_S3.R</a>.
+       The function uses the S3 OO system to dispatch a different method based on the object's type. The examples below pass a JavaScript string, number, and boolean to bizarro via OpenCPU. Each time the correct S3 method is dispatched based on the object's type in JavaScript.
+    </p>
+    <h2>Text</h2>
+    <p>
+      In this first example, a string is passed from JavaScript to R. Thus the
+      S3 method <code><a href="../R/bizarro.character">bizarro.character</a></code> is called, which reverses the string.
+    </p>
+    <b>Enter text: </b> <input type="text" id="textfield">
+    <button id="submitbuttontext" type="button">Make the text bizarre</button>
+    <p id="outputtext"></p>
+    <h2>Number</h2>
+    <p>
+    In this second example, the JavaScript function <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat</a></code> converts the input string to a floating point number, and then passes this directly to R. Thus the
+      S3 method <code><a href="../R/bizarro.numeric">bizarro.numeric</a></code> is called, which multiples the number by -1.
+    </p>
+    <p>
+    <b>Enter number: </b> <input type="number" step="any" id="numberfield">
+    </p>
+    </p>
+    <button id="submitbuttonnumber" type="button">Make the number bizarre</button>
+    </p>
+    <p id="outputnumber"></p>
+    <h2>Boolean</h2>
+    <p>
+    In this third example, the JavaScript converts the input string to a boolean by testing for equality with <code>"true"</code> (<code> == "true"</code>), and then passes this directly to R. Thus the
+      S3 method <code><a href="../R/bizarro.logical">bizarro.logical</a></code> is called, which negates the boolean.
+    </p>
+    <b>Choose a logical value:</b> <select id="logicalfield">
+      <option>true</option>
+      <option>false</option>
+    </select>
+    <button id="submitbuttonlogical" type="button">Make the logical bizarre</button>
+    <p id="outputlogical"></p>
+  </body>
+</html>

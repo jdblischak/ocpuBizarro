@@ -1,0 +1,11 @@
+body {
+  max-width: 500px;
+}
+
+#outputtext,
+#outputnumber,
+#outputlogical {
+  min-height: 1em;
+  border: 1px solid gray;
+  padding: 3px;
+}
