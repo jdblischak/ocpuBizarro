@@ -8,6 +8,7 @@
     <script src="js/bizarro-number.js"></script>
     <script src="js/bizarro-boolean.js"></script>
     <script src="js/bizarro-array.js"></script>
+    <script src="js/bizarro-dataframe.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -58,7 +59,7 @@
       <code><a href="../R/bizarro.character">bizarro.character</a></code> is
       called, which reverses the string.
     </p>
-    <b>Enter text: </b> <input type="text" id="textfield" />
+    <p><b>Enter text: </b> <input type="text" id="textfield" /></p>
     <button id="submitbuttontext" type="button">Make the text bizarre</button>
     <p>Input JavaScript data type:</p>
     <pre><code id="inputtext"></code></pre>
@@ -108,11 +109,13 @@
       <code><a href="../R/bizarro.logical">bizarro.logical</a></code> is called,
       which negates the boolean.
     </p>
-    <b>Choose a boolean value:</b>
-    <select id="booleanfield">
-      <option>true</option>
-      <option>false</option>
-    </select>
+    <p>
+      <b>Choose a boolean value:</b>
+      <select id="booleanfield">
+        <option>true</option>
+        <option>false</option>
+      </select>
+    </p>
     <button id="submitbuttonboolean" type="button">
       Make the boolean bizarre
     </button>
@@ -135,13 +138,15 @@
       >. Since the heterogenous example below includes a string, the number and
       boolean are converted to strings.
     </p>
-    <b>Choose a type of 1D array: </b>
-    <select id="arrayfield">
-      <option value="numbers">numbers only</option>
-      <option value="strings">strings only</option>
-      <option value="booleans">booleans only</option>
-      <option value="heterogenous">heterogenous</option>
-    </select>
+    <p>
+      <b>Choose a type of 1D array: </b>
+      <select id="arrayfield">
+        <option value="numbers">numbers only</option>
+        <option value="strings">strings only</option>
+        <option value="booleans">booleans only</option>
+        <option value="heterogenous">heterogenous</option>
+      </select>
+    </p>
     <button id="submitbuttonarray" type="button">
       Make the array bizarre
     </button>
@@ -151,5 +156,23 @@
     <pre><code id="consolearray"></code></pre>
     <p>Output JavaScript data type:</p>
     <pre><code id="outputarray"></code></pre>
+    <h2>Array of records</h2>
+    <p>
+      <em>JavaScript array of records to R data frame</em>
+    </p>
+    <p>
+      A JavaScript array of records is converted to a data frame in R. An
+      important distinction is that the JavaScript array is row-based whereas
+      the R data frame is column-based.
+    </p>
+    <button id="submitbuttondataframe" type="button">
+      Make the array of records bizarre
+    </button>
+    <p>Input JavaScript data type:</p>
+    <pre><code id="inputdataframe"></code></pre>
+    <p>R code executed:</p>
+    <pre><code id="consoledataframe"></code></pre>
+    <p>Output JavaScript data type:</p>
+    <pre><code id="outputdataframe"></code></pre>
   </body>
 </html>
