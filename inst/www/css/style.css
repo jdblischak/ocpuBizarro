@@ -10,7 +10,10 @@ body {
 #outputnumber,
 #inputboolean,
 #consoleboolean,
-#outputboolean {
+#outputboolean,
+#inputarray,
+#consolearray,
+#outputarray {
   display: block;
   min-height: 1em;
   border: 1px solid gray;

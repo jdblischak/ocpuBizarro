@@ -1,4 +1,3 @@
-//init this script when the page has loaded
 $(document).ready(function() {
   $("#submitbuttonnumber").on("click", function() {
     $("#submitbuttonnumber").attr("disabled", "disabled");

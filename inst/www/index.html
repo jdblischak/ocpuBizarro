@@ -7,6 +7,7 @@
     <script src="js/bizarro-text.js"></script>
     <script src="js/bizarro-number.js"></script>
     <script src="js/bizarro-boolean.js"></script>
+    <script src="js/bizarro-array.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -21,7 +22,14 @@
       packages accessible from a webpage. One of its nicest features is that it
       preserves the data types when transferring from JavaScript to R via JSON.
       This means that an R package author doesn't need to provide any wrapper
-      functionality to process JSON.
+      functionality to process JSON. The conversion is performed by the R
+      package
+      <a href="https://cran.r-project.org/package=jsonlite">jsonlite</a> (also
+      by Jeroen). For all the details, see the package vignette
+      <a
+        href="https://cran.r-project.org/package=jsonlite/vignettes/json-mapping.pdf"
+        >A mapping between JSON data and R objects</a
+      >.
     </p>
     <p>
       This example app, ocpuBizarro, demonstrates this feature using
@@ -114,5 +122,34 @@
     <pre><code id="consoleboolean"></code></pre>
     <p>Output JavaScript data type:</p>
     <pre><code id="outputboolean"></code></pre>
+    <h2>1D Arrays</h2>
+    <p>
+      <em>JavaScript 1D array to R atomic vector</em>
+    </p>
+    <p>
+      A 1D JavaScript array is converted to an atomic vector in R. If the array
+      is homogenous, the data type is preserved. If the array is heterogenous,
+      then R applies its
+      <a href="http://adv-r.had.co.nz/Data-structures.html#vectors"
+        >coercion rules</a
+      >. Since the heterogenous example below includes a string, the number and
+      boolean are converted to strings.
+    </p>
+    <b>Choose a type of 1D array: </b>
+    <select id="arrayfield">
+      <option value="numbers">numbers only</option>
+      <option value="strings">strings only</option>
+      <option value="booleans">booleans only</option>
+      <option value="heterogenous">heterogenous</option>
+    </select>
+    <button id="submitbuttonarray" type="button">
+      Make the array bizarre
+    </button>
+    <p>Input JavaScript data type:</p>
+    <pre><code id="inputarray"></code></pre>
+    <p>R code executed:</p>
+    <pre><code id="consolearray"></code></pre>
+    <p>Output JavaScript data type:</p>
+    <pre><code id="outputarray"></code></pre>
   </body>
 </html>
